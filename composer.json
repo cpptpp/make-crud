@@ -1,0 +1,20 @@
+{
+    "name": "meioa/make-crud",
+    "description": "A tool for automatically generating CRUD functional components",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Meioa\\Tools\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "sunny",
+            "email": "814979326@qq.com"
+        }
+    ],
+    "require": {
+        "topthink/framework": "^6.1"
+    }
+}

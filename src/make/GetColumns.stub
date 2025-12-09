@@ -1,0 +1,13 @@
+<?php
+
+namespace {%namespace%};
+
+use Meioa\Tools\action\GetColumns;
+
+
+class {%className%}
+{
+    public function run(){
+        return (new GetColumns('{%table%}','{%tablePk%}'))->run();
+    }
+}

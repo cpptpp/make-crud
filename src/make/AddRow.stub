@@ -1,0 +1,13 @@
+<?php
+
+namespace {%namespace%};
+use Meioa\Tools\action\AddRow;
+
+
+class {%className%}
+{
+    public function run(){
+        $data = request()->post();
+        return (new AddRow('{%table%}','{%tablePk%}'))->run($data);
+    }
+}

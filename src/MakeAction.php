@@ -33,7 +33,8 @@ class MakeAction
         $this->_nameSpace = $nameSpace;
     }
 
-    private function  _getClassName($action){
+    private function  _getClassName($action): string
+    {
 
 
         $tmpArr = explode('_',$action);
@@ -45,15 +46,18 @@ class MakeAction
     }
 
 
-    private function _getServiceTpl($action){
+    private function _getServiceTpl($action): string
+    {
         return __DIR__ . DIRECTORY_SEPARATOR . 'make' . DIRECTORY_SEPARATOR.$action.'.stub';
     }
 
 
-    private function _getRootPath(){
-        return dirname(__DIR__,3);
+    private function _getRootPath(): string
+    {
+        return dirname(__DIR__,4);
     }
-    private function _getPsr4Rules($rootPath){
+    private function _getPsr4Rules($rootPath): array
+    {
         $response = ['error'=> 110,'message'=>''];
 
         //var_dump($dir);die;
@@ -126,7 +130,8 @@ class MakeAction
      * @param $action
      * @return array
      */
-    public function run( $action){
+    public function run( $action): array
+    {
 
         $this->_init();
         $rootPath = $this->_rootPath;

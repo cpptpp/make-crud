@@ -7,9 +7,10 @@ namespace Meioa\Tools\action;
 use Meioa\Tools\TableCache;
 
 
-class GetColumns extends BaseAction
+class BaseGetColumns extends BaseAction
 {
-    public function run(){
+    public function run(): array
+    {
         $res = (new TableCache())->getColumns($this->table);
         return Result::array(0,'',$res);
     }

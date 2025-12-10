@@ -6,7 +6,7 @@ namespace Meioa\Tools\action;
 
 use think\facade\Db;
 
-class PageQuery extends BaseAction
+class BasePageQuery extends BaseAction
 {
     private $_withoutField;
     public function setWithoutField($field){
@@ -15,7 +15,7 @@ class PageQuery extends BaseAction
     }
 
     private function _getColumns(){
-        $columnRes = (new GetColumns($this->table,$this->tablePk))->run();
+        $columnRes = (new BaseGetColumns($this->table,$this->tablePk))->run();
         return $columnRes['data'];
     }
 

@@ -6,9 +6,10 @@ namespace Meioa\Tools\action;
 
 use think\facade\Db;
 
-class DeleteRow extends BaseAction
+class BaseDeleteRow extends BaseAction
 {
-    public function run($data){
+    public function run($data): array
+    {
         if(!isset($data[$this->tablePk]) || $data[$this->tablePk]<1){
             return Result::array(112,'参数错误！');
         }

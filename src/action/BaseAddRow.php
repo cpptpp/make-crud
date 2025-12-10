@@ -6,7 +6,7 @@ namespace Meioa\Tools\action;
 
 use think\facade\Db;
 
-class AddRow extends BaseAction
+class BaseAddRow extends BaseAction
 {
     private $_isUpdate = false;
 
@@ -20,9 +20,10 @@ class AddRow extends BaseAction
     private function _isUpdateTime($columnName){
         return preg_match("/(update_time)$/", $columnName);
     }
-    private function _validData($data){
+    private function _validData($data): array
+    {
 
-        $columns = (new GetColumns($this->table,$this->tablePk))->run();
+        $columns = (new BaseGetColumns($this->table,$this->tablePk))->run();
         $insertData = [];
         foreach ($columns['data'] as $column){
 
@@ -45,7 +46,8 @@ class AddRow extends BaseAction
         return $insertData;
     }
 
-    public function run($data){
+    public function run($data): array
+    {
 
         //$this->checkIsUpdate($data);
         $this->getIsUpdate($data);
@@ -67,7 +69,8 @@ class AddRow extends BaseAction
         }
     }
 
-    private function _update($data){
+    private function _update($data): array
+    {
         $res = Db::table($this->table)->where([$this->tablePk=>$data[$this->tablePk]])->update($data);
         if($res<1){
             return Result::array(110,'更新失败！',$res);

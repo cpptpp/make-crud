@@ -2,13 +2,13 @@
 
 namespace {%namespace%};
 
-use Meioa\Tools\action\PageQuery;
+use Meioa\Tools\action\BasePageQuery;
 
 
 class {%className%}
 {
     public function run(){
         $data = request()->post();
-        return (new PageQuery('{%table%}','{%tablePk%}'))->run($data);
+        return (new BasePageQuery('{%table%}','{%tablePk%}'))->run($data);
     }
 }

@@ -2,12 +2,12 @@
 
 namespace {%namespace%};
 
-use Meioa\Tools\action\GetColumns;
+use Meioa\Tools\action\BaseGetColumns;
 
 
 class {%className%}
 {
     public function run(){
-        return (new GetColumns('{%table%}','{%tablePk%}'))->run();
+        return (new BaseGetColumns('{%table%}','{%tablePk%}'))->run();
     }
 }

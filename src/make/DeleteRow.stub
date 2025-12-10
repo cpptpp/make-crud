@@ -2,13 +2,13 @@
 
 namespace {%namespace%};
 
-use Meioa\Tools\action\DeleteRow;
+use Meioa\Tools\action\BaseDeleteRow;
 
 
 class {%className%}
 {
     public function run(){
         $data = request()->post();
-        return (new DeleteRow('{%table%}','{%tablePk%}'))->run($data);
+        return (new BaseDeleteRow('{%table%}','{%tablePk%}'))->run($data);
     }
 }

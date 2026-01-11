@@ -179,8 +179,8 @@ class MakeAction
             $response['message'] = '表'.$table.'主键查找失败';
             return $response;
         }
-        $className = $this->_getClassName($table).$this->_getClassName($action);
-//        $className = $this->_getClassName($action);
+//        $className = $this->_getClassName($table).$this->_getClassName($action);
+        $className = $this->_getClassName($action);
         $classFile =$actionDir.DIRECTORY_SEPARATOR.$className.'.php';
         //var_dump($classFile);die;
 

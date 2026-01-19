@@ -19,18 +19,15 @@ class BasePageQuery extends BaseAction
         return $columnRes['data'];
     }
 
-    private function _isTimeColumn($columnName){
-        return preg_match("/(time)$/", $columnName);
-    }
     private function _createCondition($columns,$param){
-
+        $paramAnalyse = new ParamAnalyse();
         $where =[];
         foreach ($columns as $column){
 
             if(isset($param[$column['COLUMN_NAME']]) && !empty($param[$column['COLUMN_NAME']])){
                 if($column['DATA_TYPE'] == 'date'){
                     $where[] = [$column['COLUMN_NAME'],'between',[date('Y-m-d',strtotime($param[$column['COLUMN_NAME']][0])),date('Y-m-d',strtotime($param[$column['COLUMN_NAME']][1]))]];
-                }elseif($this->_isTimeColumn($column['COLUMN_NAME'])){
+                }elseif($paramAnalyse->isTimeColumn($column['COLUMN_NAME'])){
                     $where[] = [$column['COLUMN_NAME'],'between',[strtotime($param[$column['COLUMN_NAME']][0]),strtotime($param[$column['COLUMN_NAME']][1])]];
                 }else{
                     $where[] = [$column['COLUMN_NAME'],'=',$param[$column['COLUMN_NAME']]];

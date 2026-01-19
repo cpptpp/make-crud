@@ -8,7 +8,7 @@ class MakeAction
 {
 
 
-    const ACTIONS = ['AddRow','DeleteRow','GetColumns','PageQuery'];
+    const ACTIONS = ['AddRow','DeleteRow','GetColumns','PageQuery','UpdateRow'];
     //const ACTIONS = ['add_row','delete_row','get_columus','page_query'];
 
 

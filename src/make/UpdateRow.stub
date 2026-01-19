@@ -1,0 +1,13 @@
+<?php
+
+namespace {%namespace%};
+use Meioa\Tools\action\BaseUpdateRow;
+
+
+class {%className%}
+{
+    public function run(){
+        $data = request()->post();
+        return (new BaseUpdateRow('{%table%}','{%tablePk%}'))->run($data);
+    }
+}

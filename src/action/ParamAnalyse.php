@@ -35,7 +35,7 @@ class ParamAnalyse
                     $insertData[$columnName] = empty($data[$columnName])?0:strtotime($data[$columnName]);
                 }
             }elseif(isset($data[$columnName])){
-                $insertData[$columnName] = (new ParamConvert(__NAMESPACE__.'\\params\\type'))->run($column['DATA_TYPE'],$data[$columnName]);
+                $insertData[$columnName] = (new ParamConvert(__NAMESPACE__.'\\params\\type\\'))->run($column['DATA_TYPE'],$data[$columnName]);
             }
         }
 

@@ -46,4 +46,24 @@ class TableCache
         }
     }
 
+    /**
+     * 获取所有存在主键的表名称
+     * @return array
+     */
+    public function getPkTables(){
+        $tables = [];
+        $len = strlen(self::TABLE_PK);
+        foreach ($this->_store->getKeys() as $key){
+            if (strpos($key, self::TABLE_PK) !== 0){
+                continue;
+            }
+            $table = substr($key, $len);
+            if ($table === '' || empty($this->getPk($table))){
+                continue;
+            }
+            $tables[] = $table;
+        }
+        return $tables;
+    }
+
 }

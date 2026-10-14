@@ -32,7 +32,8 @@ class ParamAnalyse
                 }else if($this->isUpdateTime($columnName)){
                     $insertData[$columnName] = time();
                 }else if(isset($data[$columnName])){
-                    $insertData[$columnName] = empty($data[$columnName])?0:strtotime($data[$columnName]);
+                    $val = $data[$columnName];
+                    $insertData[$columnName] = is_string($val)?strtotime($val):intval($val);
                 }
             }elseif(isset($data[$columnName])){
                 $insertData[$columnName] = (new ParamConvert(__NAMESPACE__.'\\params\\type\\'))->run($column['DATA_TYPE'],$data[$columnName]);

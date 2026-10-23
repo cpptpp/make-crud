@@ -15,7 +15,9 @@
         }
     ],
     "require": {
-        "topthink/framework": "^6.1",
-      "ext-json": "*"
+        "php": ">=8.0.0",
+        "topthink/framework": "^8.1",
+        "topthink/think-container": "^2.0",
+        "ext-json": "*"
     }
 }

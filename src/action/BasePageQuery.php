@@ -60,8 +60,14 @@ class BasePageQuery extends BaseAction
     }
     public function run($param){
 
-        $page = $param['page']??1;
-        $num = $param['num']??10;
+        $page = (int)($param['page'] ?? 1);
+        $num = (int)($param['num'] ?? 10);
+        if($page < 1){
+            $page = 1;
+        }
+        if($num < 1){
+            $num = 10;
+        }
         $columns = $this->_getColumns();
         $where = $this->_createCondition($columns,$param);
         //var_dump($where);die;

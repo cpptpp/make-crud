@@ -76,11 +76,12 @@ class BasePageQuery extends BaseAction
         if(!empty($this->_withoutField)){
             $db = $db->withoutField($this->_withoutField);
         }
+        $data['total'] = $db->count();
         $lists= $db->limit($startNum,$num)->order($this->tablePk,'desc')->select()->toArray();
         $data['list'] = $this->_getRes($columns,$lists);
         //$data['list'] = Db::table($this->table)->limit($startNum,$num)->order($this->tablePk,'desc')->select();
 
-        $data['total'] = $db->count();
+
 
         return Result::array(0,'',$data);
     }
